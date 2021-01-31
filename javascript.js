@@ -54,7 +54,6 @@ function temps(donnees) {
   descriptionTemps.style.fontSize = "1.8vw";
   descriptionTemps.style.color = "whitesmoke";
   descriptionTemps.style.fontWeight = "bold";
-  
 
   let imageTemps = document.createElement("img");
   imageTemps.style.width = "300px";
@@ -66,11 +65,17 @@ function temps(donnees) {
   vent.style.fontSize = "1.8vw";
   vent.style.color = "whitesmoke";
   vent.style.fontWeight = "bold";
- 
+
+  let humidite=document.createElement('p')
+  humidite.style.fontFamily = " meteo";
+  humidite.style.fontSize = "1.8vw";
+  humidite.style.color = "whitesmoke";
+  humidite.style.fontWeight = "bold";
 
   blocTemps.appendChild(descriptionTemps);
   blocTemps.appendChild(imageTemps);
   blocTemps.appendChild(vent);
+  blocTemps.appendChild(humidite);
 
   for (let i in donnees.weather) {
     let meteorologie = donnees.weather[i].main;
@@ -87,7 +92,50 @@ function temps(donnees) {
   }
 
   for (let i in donnees.wind) {
-    vent.innerHTML =
-      "le vent souffle à : " + donnees.wind.speed * 1.61 + " km/h";
+    vent.innerHTML ="le vent souffle à : " + Math.round(donnees.wind.speed * 3.6) + " km/h";
   }
+
+
+  let blocTemperature=document.querySelector('.temperature')
+  let maTemp=document.createElement('p')
+  maTemp.innerHTML="Température"
+  maTemp.style.fontFamily = " meteo";
+  maTemp.style.fontSize = "1.8vw";
+  maTemp.style.color = "whitesmoke";
+  maTemp.style.fontWeight = "bold";
+  let maTemperature=document.createElement('p')
+  maTemperature.innerHTML="Température"
+  maTemperature.style.fontFamily = " meteo";
+  maTemperature.style.fontSize = "1.8vw";
+  maTemperature.style.color = "whitesmoke";
+  maTemperature.style.fontWeight = "bold";
+  let minMax=document.createElement('p')
+  minMax.style.fontFamily = " meteo";
+  minMax.style.fontSize = "1.2vw";
+  minMax.style.color = "whitesmoke";
+  minMax.style.fontWeight = "bold";
+
+  let pascal=document.createElement('p')
+  pascal.style.fontFamily = " meteo";
+  pascal.style.fontSize = "1.8vw";
+  pascal.style.color = "whitesmoke";
+  pascal.style.fontWeight = "bold";
+
+ 
+
+  blocTemperature.appendChild(maTemp)
+  blocTemperature.appendChild(maTemperature)
+  blocTemperature.appendChild(minMax)
+  blocTemperature.appendChild(pascal)
+
+  for(let i in donnees.main){
+maTemperature.innerHTML=Math.round(donnees.main.temp-273,15) + "°c"
+minMax.innerHTML="min : "+" "+ Math.round(donnees.main.temp_min-273,15)+ "°c" +"&nbsp"+"&nbsp"+"&nbsp"+" max : "+" "+  Math.round(donnees.main.temp_max-273,15)+ "°c" 
+pascal.innerHTML= "pression : "+"&nbsp"+ donnees.main.pressure + "&nbsp"+"hPa"
+humidite.innerHTML= "humidité : "+"&nbsp"+ donnees.main.humidity + "&nbsp"+"%"
+}
+
+
+
+
 }
