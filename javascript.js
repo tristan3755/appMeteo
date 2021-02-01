@@ -86,6 +86,12 @@ function temps(donnees) {
     } else if (meteorologie === "Clouds") {
       descriptionTemps.innerHTML = "Temps nuageux";
       imageTemps.src = "./ressources/images/nuage.png";
+    } else if (meteorologie === "Thunderstorm") {
+      descriptionTemps.innerHTML = "Temps orageux";
+      imageTemps.src = "./ressources/images/orage.png";
+    }else if (meteorologie === "Rain") {
+      descriptionTemps.innerHTML = "Temps pluvieux";
+      imageTemps.src = "./ressources/images/pluie.png";
     }
 
     console.log(meteorologie);
