@@ -80,7 +80,7 @@ function temps(donnees) {
   for (let i in donnees.weather) {
     let meteorologie = donnees.weather[i].main;
 
-    if (meteorologie === "Drizzle" || meteorologie === "Mist") {
+    if (meteorologie === "Drizzle" || meteorologie === "Mist"|| meteorologie==="Fog") {
       descriptionTemps.innerHTML = "Temps brumeux et pleuvieux";
       imageTemps.src = "./ressources/images/nuage.png";
     } else if (meteorologie === "Clouds") {
@@ -92,7 +92,14 @@ function temps(donnees) {
     }else if (meteorologie === "Rain") {
       descriptionTemps.innerHTML = "Temps pluvieux";
       imageTemps.src = "./ressources/images/pluie.png";
+    }else if (meteorologie === "Snow") {
+      descriptionTemps.innerHTML = "Temps neigeux";
+      imageTemps.src = "./ressources/images/neige.png";
+    }else if (meteorologie === "Clear") {
+      descriptionTemps.innerHTML = "Temps ensoleillé";
+      imageTemps.src = "./ressources/images/soleil.png";
     }
+
 
     console.log(meteorologie);
   }
