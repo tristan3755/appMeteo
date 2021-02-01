@@ -152,3 +152,36 @@ humidite.innerHTML= "humidité : "+"&nbsp"+ donnees.main.humidity + "&nbsp"+"%"
 
 
 }
+
+
+/************************************menu************************************/
+
+let bouton=document.getElementById('boutonMenu')
+let croix=document.getElementById('croix')
+let menu=document.getElementById('menu')
+
+bouton.addEventListener('click',(event)=>{
+
+ouvreMenu()
+
+})
+
+function ouvreMenu(){
+
+menu.style.display="flex"
+menu.style.width="100%"
+menu.style.opacity="1"
+
+}
+
+croix.addEventListener('click',(event)=>{
+
+  fermeMenu()
+  
+  })
+  
+  function fermeMenu(){
+  
+  menu.style.display="none"
+  
+  }
