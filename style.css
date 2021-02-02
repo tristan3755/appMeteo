@@ -57,8 +57,14 @@ header{
     
     color: white;
     font-size: 30px;
-   
 }
+
+#boutonMenu:hover,#croix:hover,#menu p:hover{
+    color:#AB964A;
+    cursor: pointer;
+}
+
+
 
 #menu{
     position: fixed;
