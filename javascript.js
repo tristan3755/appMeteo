@@ -273,7 +273,7 @@ menu.appendChild(menuMetz);
     }
     
     menuNancy.addEventListener('click',(event)=>{
-      
+     
      maRequeteNancy()
       fermeMenu();
      
