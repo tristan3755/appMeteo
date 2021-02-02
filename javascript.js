@@ -23,7 +23,7 @@ function nomVille(nomVille) {
       nomDeVille.innerHTML = "Nancy";
     }
   }
-
+  ville.innerHTML=""
   ville.appendChild(nomDeVille);
 }
 
@@ -51,6 +51,8 @@ function temps(donnees) {
   humidite.style.fontSize = "1.8vw";
   humidite.style.color = "whitesmoke";
   humidite.style.fontWeight = "bold";
+
+  blocTemps.innerHTML=""
 
   blocTemps.appendChild(descriptionTemps);
   blocTemps.appendChild(imageTemps);
@@ -116,6 +118,8 @@ function temps(donnees) {
   pascal.style.fontSize = "1.8vw";
   pascal.style.color = "whitesmoke";
   pascal.style.fontWeight = "bold";
+
+  blocTemperature.innerHTML=""
 
   blocTemperature.appendChild(maTemp);
   blocTemperature.appendChild(maTemperature);
