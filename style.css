@@ -59,7 +59,7 @@ header{
     font-size: 30px;
 }
 
-#boutonMenu:hover,#croix:hover,#menu p:hover{
+#boutonMenu:hover,#croix:hover,.nomMenu:hover{
     color:#AB964A;
     cursor: pointer;
 }
@@ -102,7 +102,7 @@ header{
     font-size: 30px;
 }
 
-#menu p{
+.nomMenu{
     font-family: 'meteo';
     letter-spacing: 15px;
     color: white;

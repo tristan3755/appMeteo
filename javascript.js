@@ -1,23 +1,3 @@
-function maRequeteNancy() {
-  let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      let infoMeteoNancy = JSON.parse(this.response);
-      nomVille(infoMeteoNancy);
-      temps(infoMeteoNancy);
-      console.log(infoMeteoNancy);
-    }
-  };
-  xhttp.open(
-    "GET",
-    "http://api.openweathermap.org/data/2.5/weather?q=Nancy&appid=28da2799b73f06513b062e2b6178e72d",
-    true
-  );
-  xhttp.send();
-}
-
-maRequeteNancy();
-
 function nomVille(nomVille) {
   let ville = document.getElementById("ville");
   let bG = document.getElementById("background");
@@ -39,7 +19,7 @@ function nomVille(nomVille) {
 
         bG.style.filter = "blur(" + valeur * 1 + "px)";
       });
-
+      
       nomDeVille.innerHTML = "Nancy";
     }
   }
@@ -66,7 +46,7 @@ function temps(donnees) {
   vent.style.color = "whitesmoke";
   vent.style.fontWeight = "bold";
 
-  let humidite=document.createElement('p')
+  let humidite = document.createElement("p");
   humidite.style.fontFamily = " meteo";
   humidite.style.fontSize = "1.8vw";
   humidite.style.color = "whitesmoke";
@@ -80,7 +60,11 @@ function temps(donnees) {
   for (let i in donnees.weather) {
     let meteorologie = donnees.weather[i].main;
 
-    if (meteorologie === "Drizzle" || meteorologie === "Mist"|| meteorologie==="Fog") {
+    if (
+      meteorologie === "Drizzle" ||
+      meteorologie === "Mist" ||
+      meteorologie === "Fog"
+    ) {
       descriptionTemps.innerHTML = "Temps brumeux et pleuvieux";
       imageTemps.src = "./ressources/images/nuage.png";
     } else if (meteorologie === "Clouds") {
@@ -89,99 +73,233 @@ function temps(donnees) {
     } else if (meteorologie === "Thunderstorm") {
       descriptionTemps.innerHTML = "Temps orageux";
       imageTemps.src = "./ressources/images/orage.png";
-    }else if (meteorologie === "Rain") {
+    } else if (meteorologie === "Rain") {
       descriptionTemps.innerHTML = "Temps pluvieux";
       imageTemps.src = "./ressources/images/pluie.png";
-    }else if (meteorologie === "Snow") {
+    } else if (meteorologie === "Snow") {
       descriptionTemps.innerHTML = "Temps neigeux";
       imageTemps.src = "./ressources/images/neige.png";
-    }else if (meteorologie === "Clear") {
+    } else if (meteorologie === "Clear") {
       descriptionTemps.innerHTML = "Temps ensoleillé";
       imageTemps.src = "./ressources/images/soleil.png";
     }
-
 
     console.log(meteorologie);
   }
 
   for (let i in donnees.wind) {
-    vent.innerHTML ="le vent souffle à : " + Math.round(donnees.wind.speed * 3.6) + " km/h";
+    vent.innerHTML =
+      "le vent souffle à : " + Math.round(donnees.wind.speed * 3.6) + " km/h";
   }
 
-
-  let blocTemperature=document.querySelector('.temperature')
-  let maTemp=document.createElement('p')
-  maTemp.innerHTML="Température"
+  let blocTemperature = document.querySelector(".temperature");
+  let maTemp = document.createElement("p");
+  maTemp.innerHTML = "Température";
   maTemp.style.fontFamily = " meteo";
   maTemp.style.fontSize = "1.8vw";
   maTemp.style.color = "whitesmoke";
   maTemp.style.fontWeight = "bold";
-  let maTemperature=document.createElement('p')
-  maTemperature.innerHTML="Température"
+  let maTemperature = document.createElement("p");
+  maTemperature.innerHTML = "Température";
   maTemperature.style.fontFamily = " meteo";
   maTemperature.style.fontSize = "1.8vw";
   maTemperature.style.color = "whitesmoke";
   maTemperature.style.fontWeight = "bold";
-  let minMax=document.createElement('p')
+  let minMax = document.createElement("p");
   minMax.style.fontFamily = " meteo";
   minMax.style.fontSize = "1.2vw";
   minMax.style.color = "whitesmoke";
   minMax.style.fontWeight = "bold";
 
-  let pascal=document.createElement('p')
+  let pascal = document.createElement("p");
   pascal.style.fontFamily = " meteo";
   pascal.style.fontSize = "1.8vw";
   pascal.style.color = "whitesmoke";
   pascal.style.fontWeight = "bold";
 
- 
+  blocTemperature.appendChild(maTemp);
+  blocTemperature.appendChild(maTemperature);
+  blocTemperature.appendChild(minMax);
+  blocTemperature.appendChild(pascal);
 
-  blocTemperature.appendChild(maTemp)
-  blocTemperature.appendChild(maTemperature)
-  blocTemperature.appendChild(minMax)
-  blocTemperature.appendChild(pascal)
-
-  for(let i in donnees.main){
-maTemperature.innerHTML=Math.round(donnees.main.temp-273,15) + "°c"
-minMax.innerHTML="min : "+" "+ Math.round(donnees.main.temp_min-273,15)+ "°c" +"&nbsp"+"&nbsp"+"&nbsp"+" max : "+" "+  Math.round(donnees.main.temp_max-273,15)+ "°c" 
-pascal.innerHTML= "pression : "+"&nbsp"+ donnees.main.pressure + "&nbsp"+"hPa"
-humidite.innerHTML= "humidité : "+"&nbsp"+ donnees.main.humidity + "&nbsp"+"%"
+  for (let i in donnees.main) {
+    maTemperature.innerHTML = Math.round(donnees.main.temp - 273, 15) + "°c";
+    minMax.innerHTML =
+      "min : " +
+      " " +
+      Math.round(donnees.main.temp_min - 273, 15) +
+      "°c" +
+      "&nbsp" +
+      "&nbsp" +
+      "&nbsp" +
+      " max : " +
+      " " +
+      Math.round(donnees.main.temp_max - 273, 15) +
+      "°c";
+    pascal.innerHTML =
+      "pression : " + "&nbsp" + donnees.main.pressure + "&nbsp" + "hPa";
+    humidite.innerHTML =
+      "humidité : " + "&nbsp" + donnees.main.humidity + "&nbsp" + "%";
+  }
 }
-
-
-
-
-}
-
 
 /************************************menu************************************/
 
-let bouton=document.getElementById('boutonMenu')
-let croix=document.getElementById('croix')
-let menu=document.getElementById('menu')
+let bouton = document.getElementById("boutonMenu");
+let croix = document.getElementById("croix");
+let menu = document.getElementById("menu");
 
-bouton.addEventListener('click',(event)=>{
+bouton.addEventListener("click", (event) => {
+  ouvreMenu();
+});
 
-ouvreMenu()
-
-})
-
-function ouvreMenu(){
-
-menu.style.display="flex"
-menu.style.width="100%"
-menu.style.opacity="1"
-
+function ouvreMenu() {
+  menu.style.display = "flex";
+  menu.style.width = "100%";
+  menu.style.opacity = "1";
 }
 
-croix.addEventListener('click',(event)=>{
+croix.addEventListener("click", (event) => {
+  fermeMenu();
+});
 
-  fermeMenu()
+function fermeMenu() {
+  menu.style.display = "none";
+}
+
+let menuNancy = document.createElement("p");
+menuNancy.classList = "nomMenu";
+let nomNancy = (menuNancy.innerHTML = "Nancy");
+
+let menuReims = document.createElement("p");
+menuReims.classList = "nomMenu";
+let nomReims = (menuReims.innerHTML = "Reims");
+
+let menuStrasbourg = document.createElement("p");
+menuStrasbourg.classList = "nomMenu";
+let nomStrasbourg = (menuStrasbourg.innerHTML = "Strasbourg");
+
+let menuMetz = document.createElement("p");
+menuMetz.classList = "nomMenu";
+let nomMetz = (menuMetz.innerHTML = "Metz");
+
+menu.appendChild(menuNancy);
+menu.appendChild(menuReims);
+menu.appendChild(menuStrasbourg);
+menu.appendChild(menuMetz);
+
+/************************************switch************************************/
+
+
+    function maRequeteNancy() {
+      let xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let infoMeteoNancy = JSON.parse(this.response);
+          nomVille(infoMeteoNancy);
+          temps(infoMeteoNancy);
+          console.log(infoMeteoNancy);
+        }
+      };
+      xhttp.open(
+        "GET",
+        "http://api.openweathermap.org/data/2.5/weather?q=Nancy&appid=28da2799b73f06513b062e2b6178e72d",
+        true
+      );
+
+      xhttp.send();
+    }
+
+    function maRequeteReims() {
+      let xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let infoMeteoNancy = JSON.parse(this.response);
+          nomVille(infoMeteoNancy);
+          temps(infoMeteoNancy);
+          console.log(infoMeteoNancy);
+        }
+      };
+      xhttp.open(
+        "GET",
+        "http://api.openweathermap.org/data/2.5/weather?q=Reims&appid=28da2799b73f06513b062e2b6178e72d",
+        true
+      );
+
+      xhttp.send();
+    }
+    
+
+    function maRequeteStrasbourg() {
+      let xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let infoMeteoNancy = JSON.parse(this.response);
+          nomVille(infoMeteoNancy);
+          temps(infoMeteoNancy);
+          console.log(infoMeteoNancy);
+        }
+      };
+      xhttp.open(
+        "GET",
+        "http://api.openweathermap.org/data/2.5/weather?q=Strasbourg&appid=28da2799b73f06513b062e2b6178e72d",
+        true
+      );
+
+      xhttp.send();
+    }
+
+    function maRequeteMetz() {
+      let xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let infoMeteoNancy = JSON.parse(this.response);
+          nomVille(infoMeteoNancy);
+          temps(infoMeteoNancy);
+          console.log(infoMeteoNancy);
+        }
+      };
+      xhttp.open(
+        "GET",
+        "http://api.openweathermap.org/data/2.5/weather?q=Metz&appid=28da2799b73f06513b062e2b6178e72d",
+        true
+      );
+
+      xhttp.send();
+    }
+    
+    menuNancy.addEventListener('click',(event)=>{
+      
+     maRequeteNancy()
+      fermeMenu();
+     
+    })
+
+    menuReims.addEventListener('click',(event)=>{
+      
+     maRequeteReims()
+      fermeMenu();
+    })
+
+    menuStrasbourg.addEventListener('click',(event)=>{
+      
+      maRequeteStrasbourg()
+      fermeMenu();
+    })
+
+    menuMetz.addEventListener('click',(event)=>{
   
-  })
-  
-  function fermeMenu(){
-  
-  menu.style.display="none"
-  
-  }
+      maRequeteMetz()
+      fermeMenu();
+    })
+
+   
+
+
+
+
+    
