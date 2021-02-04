@@ -1,4 +1,3 @@
-
 function nomVille(nomVille) {
   let ville = document.getElementById("ville");
   let bG = document.getElementById("background");
@@ -13,7 +12,13 @@ function nomVille(nomVille) {
       bG.style.backgroundImage = "url('./ressources/images/nancy.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
-      bG.style.backgroundAttachment = "fixed";
+      
+
+      if(window.matchMedia("(max-width:800px)")){
+        bG.style.backgroundAttachment = "scroll";
+      }else{
+        bG.style.backgroundAttachment = "fixed";
+      }
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -26,7 +31,13 @@ function nomVille(nomVille) {
       bG.style.backgroundImage = "url('./ressources/images/reims.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
-      bG.style.backgroundAttachment = "fixed";
+      
+
+      if(window.matchMedia("(max-width:800px)")){
+        bG.style.backgroundAttachment = "scroll";
+      }else{
+        bG.style.backgroundAttachment = "fixed";
+      }
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -38,7 +49,12 @@ function nomVille(nomVille) {
       bG.style.backgroundImage = "url('./ressources/images/strasbourg.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
-      bG.style.backgroundAttachment = "fixed";
+
+      if(window.matchMedia("(max-width:800px)")){
+        bG.style.backgroundAttachment = "scroll";
+      }else{
+        bG.style.backgroundAttachment = "fixed";
+      }
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -50,7 +66,12 @@ function nomVille(nomVille) {
       bG.style.backgroundImage = "url('./ressources/images/metz.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
-      bG.style.backgroundAttachment = "fixed";
+      
+       if(window.matchMedia("(max-width:800px)")){
+        bG.style.backgroundAttachment = "scroll";
+      }else{
+        bG.style.backgroundAttachment = "fixed";
+      }
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -68,27 +89,44 @@ function nomVille(nomVille) {
 function temps(donnees) {
   let blocTemps = document.querySelector(".ciel");
   let descriptionTemps = document.createElement("p");
-  descriptionTemps.style.fontFamily = " meteo";
-  descriptionTemps.style.fontSize = "1.8vw";
-  descriptionTemps.style.color = "whitesmoke";
-  descriptionTemps.style.fontWeight = "bold";
-
   let imageTemps = document.createElement("img");
   imageTemps.style.width = "300px";
   imageTemps.style.maxWidth = "100%";
   imageTemps.style.height = "auto";
-
   let vent = document.createElement("p");
-  vent.style.fontFamily = " meteo";
-  vent.style.fontSize = "1.8vw";
-  vent.style.color = "whitesmoke";
-  vent.style.fontWeight = "bold";
-
   let humidite = document.createElement("p");
-  humidite.style.fontFamily = " meteo";
-  humidite.style.fontSize = "1.8vw";
-  humidite.style.color = "whitesmoke";
-  humidite.style.fontWeight = "bold";
+
+  if (window.matchMedia("(max-width:800px)").matches) {
+    descriptionTemps.style.fontFamily = " meteo";
+    descriptionTemps.style.fontSize = "5vw";
+    descriptionTemps.style.color = "whitesmoke";
+    descriptionTemps.style.fontWeight = "bold";
+
+    vent.style.fontFamily = " meteo";
+    vent.style.fontSize = "5vw";
+    vent.style.color = "whitesmoke";
+    vent.style.fontWeight = "bold";
+
+    humidite.style.fontFamily = " meteo";
+    humidite.style.fontSize = "5vw";
+    humidite.style.color = "whitesmoke";
+    humidite.style.fontWeight = "bold";
+  } else {
+    descriptionTemps.style.fontFamily = " meteo";
+    descriptionTemps.style.fontSize = "1.8vw";
+    descriptionTemps.style.color = "whitesmoke";
+    descriptionTemps.style.fontWeight = "bold";
+
+    vent.style.fontFamily = " meteo";
+    vent.style.fontSize = "1.8vw";
+    vent.style.color = "whitesmoke";
+    vent.style.fontWeight = "bold";
+
+    humidite.style.fontFamily = " meteo";
+    humidite.style.fontSize = "1.8vw";
+    humidite.style.color = "whitesmoke";
+    humidite.style.fontWeight = "bold";
+  }
 
   blocTemps.innerHTML = "";
 
@@ -133,29 +171,57 @@ function temps(donnees) {
   }
 
   let blocTemperature = document.querySelector(".temperature");
-  let maTemp = document.createElement("p");
-  maTemp.innerHTML = "Température";
-  maTemp.style.fontFamily = " meteo";
-  maTemp.style.fontSize = "1.8vw";
-  maTemp.style.color = "whitesmoke";
-  maTemp.style.fontWeight = "bold";
-  let maTemperature = document.createElement("p");
-  maTemperature.innerHTML = "Température";
-  maTemperature.style.fontFamily = " meteo";
-  maTemperature.style.fontSize = "1.8vw";
-  maTemperature.style.color = "whitesmoke";
-  maTemperature.style.fontWeight = "bold";
-  let minMax = document.createElement("p");
-  minMax.style.fontFamily = " meteo";
-  minMax.style.fontSize = "1.2vw";
-  minMax.style.color = "whitesmoke";
-  minMax.style.fontWeight = "bold";
 
+  let maTemp = document.createElement("p");
+  let maTemperature = document.createElement("p");
+  let minMax = document.createElement("p");
   let pascal = document.createElement("p");
-  pascal.style.fontFamily = " meteo";
-  pascal.style.fontSize = "1.8vw";
-  pascal.style.color = "whitesmoke";
-  pascal.style.fontWeight = "bold";
+
+  if (window.matchMedia("(max-width:800px)").matches) {
+    maTemp.innerHTML = "Température";
+    maTemp.style.fontFamily = " meteo";
+    maTemp.style.fontSize = "5vw";
+    maTemp.style.color = "whitesmoke";
+    maTemp.style.fontWeight = "bold";
+
+    maTemperature.innerHTML = "Température";
+    maTemperature.style.fontFamily = " meteo";
+    maTemperature.style.fontSize = "5vw";
+    maTemperature.style.color = "whitesmoke";
+    maTemperature.style.fontWeight = "bold";
+
+    minMax.style.fontFamily = " meteo";
+    minMax.style.fontSize = "4.2vw";
+    minMax.style.color = "whitesmoke";
+    minMax.style.fontWeight = "bold";
+
+    pascal.style.fontFamily = " meteo";
+    pascal.style.fontSize = "5vw";
+    pascal.style.color = "whitesmoke";
+    pascal.style.fontWeight = "bold";
+  } else {
+    maTemp.innerHTML = "Température";
+    maTemp.style.fontFamily = " meteo";
+    maTemp.style.fontSize = "1.8vw";
+    maTemp.style.color = "whitesmoke";
+    maTemp.style.fontWeight = "bold";
+
+    maTemperature.innerHTML = "Température";
+    maTemperature.style.fontFamily = " meteo";
+    maTemperature.style.fontSize = "1.8vw";
+    maTemperature.style.color = "whitesmoke";
+    maTemperature.style.fontWeight = "bold";
+
+    minMax.style.fontFamily = " meteo";
+    minMax.style.fontSize = "1.2vw";
+    minMax.style.color = "whitesmoke";
+    minMax.style.fontWeight = "bold";
+
+    pascal.style.fontFamily = " meteo";
+    pascal.style.fontSize = "1.8vw";
+    pascal.style.color = "whitesmoke";
+    pascal.style.fontWeight = "bold";
+  }
 
   blocTemperature.innerHTML = "";
 
@@ -188,7 +254,7 @@ function temps(donnees) {
 /************************************menu************************************/
 
 let bouton = document.getElementById("boutonMenu");
-let section2=document.getElementById("sect2")
+let section2 = document.getElementById("sect2");
 let croix = document.getElementById("croix");
 let menu = document.getElementById("menu");
 
@@ -319,24 +385,24 @@ function maRequeteMetz() {
 
 menuNancy.addEventListener("click", (event) => {
   maRequeteNancy();
-  ouvreSection()
+  ouvreSection();
   fermeMenu();
 });
 
 menuReims.addEventListener("click", (event) => {
   maRequeteReims();
-  ouvreSection()
+  ouvreSection();
   fermeMenu();
 });
 
 menuStrasbourg.addEventListener("click", (event) => {
   maRequeteStrasbourg();
-  ouvreSection()
+  ouvreSection();
   fermeMenu();
 });
 
 menuMetz.addEventListener("click", (event) => {
   maRequeteMetz();
-  ouvreSection()
+  ouvreSection();
   fermeMenu();
 });

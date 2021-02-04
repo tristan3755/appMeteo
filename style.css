@@ -42,6 +42,7 @@ body {
 }
 
 
+
 #background {
 
     display: flex;
@@ -131,6 +132,9 @@ header {
     font-size: 3vw;
 }
 
+
+
+
 @font-face {
     font-family: 'meteo';
     src: url(./ressources/font/meteo.otf);
@@ -183,6 +187,34 @@ header {
     align-items: center;
     min-height: 100vh;
     width: 100%;
-
     background-size: cover;
+}
+
+@media(max-width:800px){
+    #ville h1 {
+
+        font-size: 8vw;
+        width: 200px;
+     }
+    
+    .titreVille {
+      
+     
+        font-size: 12vw;
+    
+    }
+
+    .nomMenu {
+     
+        font-size: 7vw;
+    }
+
+    .ciel,
+.temperature {
+
+   
+    min-height: 50vh;
+   
+
+}
 }
