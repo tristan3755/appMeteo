@@ -250,7 +250,7 @@ function maRequeteNancy() {
   };
   xhttp.open(
     "GET",
-    "http://api.openweathermap.org/data/2.5/weather?q=Nancy&appid=28da2799b73f06513b062e2b6178e72d",
+    "https://api.openweathermap.org/data/2.5/weather?q=Nancy&appid=28da2799b73f06513b062e2b6178e72d",
     true
   );
 
@@ -270,7 +270,7 @@ function maRequeteReims() {
   };
   xhttp.open(
     "GET",
-    "http://api.openweathermap.org/data/2.5/weather?q=Reims&appid=28da2799b73f06513b062e2b6178e72d",
+    "https://api.openweathermap.org/data/2.5/weather?q=Reims&appid=28da2799b73f06513b062e2b6178e72d",
     true
   );
 
@@ -290,7 +290,7 @@ function maRequeteStrasbourg() {
   };
   xhttp.open(
     "GET",
-    "http://api.openweathermap.org/data/2.5/weather?q=Strasbourg&appid=28da2799b73f06513b062e2b6178e72d",
+    "https://api.openweathermap.org/data/2.5/weather?q=Strasbourg&appid=28da2799b73f06513b062e2b6178e72d",
     true
   );
 
@@ -310,7 +310,7 @@ function maRequeteMetz() {
   };
   xhttp.open(
     "GET",
-    "http://api.openweathermap.org/data/2.5/weather?q=Metz&appid=28da2799b73f06513b062e2b6178e72d",
+    "https://api.openweathermap.org/data/2.5/weather?q=Metz&appid=28da2799b73f06513b062e2b6178e72d",
     true
   );
 
