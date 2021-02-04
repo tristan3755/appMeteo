@@ -13,6 +13,8 @@ function nomVille(nomVille) {
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
       bG.style.backgroundAttachment = "fixed";
+      
+      
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -21,8 +23,50 @@ function nomVille(nomVille) {
       });
       
       nomDeVille.innerHTML = "Nancy";
+    }else if(lieu==="Arrondissement de Reims"){
+      bG.style.backgroundImage = "url('./ressources/images/reims.jpg')";
+      bG.style.backgroundSize = "cover";
+      bG.style.backgroundPosition = "center";
+      bG.style.backgroundAttachment = "fixed";
+      
+
+      window.addEventListener("scroll", (event) => {
+        let valeur = scrollY / 75;
+
+        bG.style.filter = "blur(" + valeur * 1 + "px)";
+      });
+      nomDeVille.innerHTML = "Reims";
+    }else if(lieu==="Strasbourg"){
+      bG.style.backgroundImage = "url('./ressources/images/strasbourg.jpg')";
+      bG.style.backgroundSize = "cover";
+      bG.style.backgroundPosition = "center";
+      bG.style.backgroundAttachment = "fixed";
+      
+
+      window.addEventListener("scroll", (event) => {
+        let valeur = scrollY / 75;
+
+        bG.style.filter = "blur(" + valeur * 1 + "px)";
+      });
+      nomDeVille.innerHTML = "Strasbourg";
+    }else if(lieu==="Metz"){
+      bG.style.backgroundImage = "url('./ressources/images/metz.jpg')";
+      bG.style.backgroundSize = "cover";
+      bG.style.backgroundPosition = "center";
+      bG.style.backgroundAttachment = "fixed";
+      
+
+      window.addEventListener("scroll", (event) => {
+        let valeur = scrollY / 75;
+
+        bG.style.filter = "blur(" + valeur * 1 + "px)";
+      });
+      nomDeVille.innerHTML = "Metz";
     }
+     
+    
   }
+
   ville.innerHTML=""
   ville.appendChild(nomDeVille);
 }
@@ -280,6 +324,7 @@ menu.appendChild(menuMetz);
      
      maRequeteNancy()
       fermeMenu();
+   
      
     })
 
@@ -287,23 +332,23 @@ menu.appendChild(menuMetz);
       
      maRequeteReims()
       fermeMenu();
+ 
     })
 
     menuStrasbourg.addEventListener('click',(event)=>{
       
       maRequeteStrasbourg()
       fermeMenu();
+   
     })
 
     menuMetz.addEventListener('click',(event)=>{
   
       maRequeteMetz()
       fermeMenu();
+    
     })
-
-   
-
-
+    
 
 
     

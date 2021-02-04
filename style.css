@@ -21,11 +21,22 @@ body{
   
 }
 
+#ville h1{
+   
+    font-family: 'meteo';
+    letter-spacing: 15px;
+    color: white;
+    filter: drop-shadow(2px 2px  black);
+    font-size: 2vw;
+   text-align: center;
+   
+}
+
 .titreVille{
     font-family: 'meteo';
     letter-spacing: 15px;
     color: white;
-    filter: drop-shadow(1.5px 1.5px  black);
+    filter: drop-shadow(2px 2px  black);
     font-size: 5vw;
    
 }
@@ -39,8 +50,15 @@ body{
    justify-content: center;
     width: 100%;
     min-height: 100vh;
+   background-image: url(./ressources/images/fond1.jpg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+   background-color: #1a1818;
     
 }
+
 
 header{
     position: fixed;
@@ -76,7 +94,7 @@ header{
     width: 20%;
     top: 0;
     left: 0;
-    background-color:rgb(26, 24, 24);
+    background-color:#1a1818;
     z-index: 3;
     opacity: 0.4;
     animation:apparition 1.5s;
