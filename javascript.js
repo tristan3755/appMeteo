@@ -4,6 +4,8 @@ function nomVille(nomVille) {
   let nomDeVille = document.createElement("p");
   nomDeVille.classList = "titreVille";
 
+
+
   for (let i in nomVille) {
     let lieu = nomVille.name;
     //console.log(lieu);
@@ -13,12 +15,20 @@ function nomVille(nomVille) {
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
       
-
-      window.addEventListener("scroll", (event) => {
-        let valeur = scrollY / 75;
-
-        bG.style.filter = "blur(" + valeur * 1 + "px)";
-      });
+      if(window.matchMedia("(max-width:800px)").matches){
+        window.addEventListener("scroll", (event) => {
+          let valeur = scrollY / 75;
+    
+          bG.style.filter = "blur(" + valeur * 0 + "px)";
+        });
+      }else{
+        window.addEventListener("scroll", (event) => {
+          let valeur = scrollY / 75;
+    
+          bG.style.filter = "blur(" + valeur * 1 + "px)";
+        });
+      }
+      
 
       nomDeVille.innerHTML = "Nancy";
     } else if (lieu === "Arrondissement de Reims") {
@@ -26,11 +36,19 @@ function nomVille(nomVille) {
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
       
-      window.addEventListener("scroll", (event) => {
-        let valeur = scrollY / 75;
-
-        bG.style.filter = "blur(" + valeur * 1 + "px)";
-      });
+      if(window.matchMedia("(max-width:800px)").matches){
+        window.addEventListener("scroll", (event) => {
+          let valeur = scrollY / 75;
+    
+          bG.style.filter = "blur(" + valeur * 0 + "px)";
+        });
+      }else{
+        window.addEventListener("scroll", (event) => {
+          let valeur = scrollY / 75;
+    
+          bG.style.filter = "blur(" + valeur * 1 + "px)";
+        });
+      }
       nomDeVille.innerHTML = "Reims";
     } else if (lieu === "Strasbourg") {
       bG.style.backgroundImage = "url('./ressources/images/strasbourg.jpg')";
@@ -38,22 +56,39 @@ function nomVille(nomVille) {
       bG.style.backgroundPosition = "center";
 
 
-      window.addEventListener("scroll", (event) => {
-        let valeur = scrollY / 75;
-
-        bG.style.filter = "blur(" + valeur * 1 + "px)";
-      });
+      if(window.matchMedia("(max-width:800px)").matches){
+        window.addEventListener("scroll", (event) => {
+          let valeur = scrollY / 75;
+    
+          bG.style.filter = "blur(" + valeur * 0 + "px)";
+        });
+      }else{
+        window.addEventListener("scroll", (event) => {
+          let valeur = scrollY / 75;
+    
+          bG.style.filter = "blur(" + valeur * 1 + "px)";
+        });
+      }
       nomDeVille.innerHTML = "Strasbourg";
     } else if (lieu === "Metz") {
       bG.style.backgroundImage = "url('./ressources/images/metz.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
 
-      window.addEventListener("scroll", (event) => {
-        let valeur = scrollY / 75;
-
-        bG.style.filter = "blur(" + valeur * 1 + "px)";
-      });
+    
+      if(window.matchMedia("(max-width:800px)").matches){
+        window.addEventListener("scroll", (event) => {
+          let valeur = scrollY / 75;
+    
+          bG.style.filter = "blur(" + valeur * 0 + "px)";
+        });
+      }else{
+        window.addEventListener("scroll", (event) => {
+          let valeur = scrollY / 75;
+    
+          bG.style.filter = "blur(" + valeur * 1 + "px)";
+        });
+      }
       nomDeVille.innerHTML = "Metz";
     }
   }
@@ -272,10 +307,15 @@ let menuMetz = document.createElement("p");
 menuMetz.classList = "nomMenu";
 let nomMetz = (menuMetz.innerHTML = "Metz");
 
+let menuEspace = document.createElement("p");
+menuEspace.classList = "nomMenu";
+let nomEspace = (menuEspace.innerHTML = "");
+
 menu.appendChild(menuNancy);
 menu.appendChild(menuReims);
 menu.appendChild(menuStrasbourg);
 menu.appendChild(menuMetz);
+menu.appendChild(menuEspace);
 
 /************************************switch************************************/
 
