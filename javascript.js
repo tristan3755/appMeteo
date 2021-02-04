@@ -14,12 +14,6 @@ function nomVille(nomVille) {
       bG.style.backgroundPosition = "center";
       
 
-      if(window.matchMedia("(max-width:800px)")){
-        bG.style.backgroundAttachment = "scroll";
-      }else{
-        bG.style.backgroundAttachment = "fixed";
-      }
-
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
 
@@ -32,13 +26,6 @@ function nomVille(nomVille) {
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
       
-
-      if(window.matchMedia("(max-width:800px)")){
-        bG.style.backgroundAttachment = "scroll";
-      }else{
-        bG.style.backgroundAttachment = "fixed";
-      }
-
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
 
@@ -50,11 +37,6 @@ function nomVille(nomVille) {
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
 
-      if(window.matchMedia("(max-width:800px)")){
-        bG.style.backgroundAttachment = "scroll";
-      }else{
-        bG.style.backgroundAttachment = "fixed";
-      }
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -66,12 +48,6 @@ function nomVille(nomVille) {
       bG.style.backgroundImage = "url('./ressources/images/metz.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
-      
-       if(window.matchMedia("(max-width:800px)")){
-        bG.style.backgroundAttachment = "scroll";
-      }else{
-        bG.style.backgroundAttachment = "fixed";
-      }
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
