@@ -1,66 +1,67 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     padding: 0;
     margin: 0;
-    
+
 }
 
-#ville{
-    
-  
+#ville {
+
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height:100px;
-    
-  
+    min-height: 100px;
+
+
 }
 
-#ville h1{
-   
+#ville h1 {
+
     font-family: 'meteo';
     letter-spacing: 15px;
     color: white;
-    filter: drop-shadow(2px 2px  black);
-    font-size: 2vw;
-   text-align: center;
-   
+    filter: drop-shadow(2px 2px black);
+    font-size: 3.5vw;
+    text-align: center;
+
 }
 
-.titreVille{
+.titreVille {
     font-family: 'meteo';
     letter-spacing: 15px;
     color: white;
-    filter: drop-shadow(2px 2px  black);
+    filter: drop-shadow(2px 2px black);
     font-size: 5vw;
-   
+
 }
 
 
-#background{
-   
+#background {
+
     display: flex;
     flex-direction: column;
     align-items: center;
-   justify-content: center;
+    justify-content: center;
     width: 100%;
     min-height: 100vh;
-   background-image: url(./ressources/images/fond1.jpg);
-   background-size: contain;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-position: center;
-   background-color: #1a1818;
-    
+    background-image: url(./ressources/images/fond1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #1a1818;
+  
+
 }
 
 
-header{
+header {
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -71,20 +72,22 @@ header{
     z-index: 2;
 }
 
-#boutonMenu{
-    
+#boutonMenu {
+
     color: white;
     font-size: 30px;
 }
 
-#boutonMenu:hover,#croix:hover,.nomMenu:hover{
-    color:#AB964A;
+#boutonMenu:hover,
+#croix:hover,
+.nomMenu:hover {
+    color: #AB964A;
     cursor: pointer;
 }
 
 
 
-#menu{
+#menu {
     position: fixed;
     display: none;
     flex-direction: column;
@@ -94,25 +97,27 @@ header{
     width: 20%;
     top: 0;
     left: 0;
-    background-color:#1a1818;
+    background-color: #1a1818;
     z-index: 3;
     opacity: 0.4;
-    animation:apparition 1.5s;
+    animation: apparition 1.5s;
 }
 
 
-@keyframes apparition{
+@keyframes apparition {
 
-    from{
+    from {
         opacity: 0.1;
         width: 20%;
-    }to{
+    }
+
+    to {
         opacity: 1;
         width: 100%;
     }
 }
 
-#croix{
+#croix {
     position: absolute;
     right: 50px;
     top: 50px;
@@ -120,66 +125,65 @@ header{
     font-size: 30px;
 }
 
-.nomMenu{
+.nomMenu {
     font-family: 'meteo';
     letter-spacing: 15px;
     color: white;
     font-size: 3vw;
 }
 
-@font-face{
+@font-face {
     font-family: 'meteo';
     src: url(./ressources/font/meteo.otf);
 }
 
-#meteo{
- 
-   
+#meteo {
+
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     min-height: 100vh;
-    background-color:rgb(26, 24, 24);
+    background-color: rgb(26, 24, 24);
 
 }
 
-.temperature{
+.temperature {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color:rgb(26, 24, 24);
+    background-color: rgb(26, 24, 24);
 }
 
-.ciel,.temperature{
-    
+.ciel,
+.temperature {
+
     width: 50%;
     min-width: 250px;
     min-height: 100vh;
     margin: auto;
-    
+
 }
 
-.ciel{
-    
+.ciel {
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color:rgb(26, 24, 24);
+    background-color: rgb(26, 24, 24);
 }
 
 
-#sect2{
+#sect2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     width: 100%;
-   
+
     background-size: cover;
 }
-
-

@@ -1,7 +1,19 @@
+let bGpremierePage = document.getElementById("background");
+
+window.addEventListener("scroll", (event) => {
+  let valeur = scrollY/4;
+
+  bGpremierePage.style.filter = "grayscale(" + valeur * 1 + "%)";
+});
+
+
+
+
+
 function nomVille(nomVille) {
   let ville = document.getElementById("ville");
   let bG = document.getElementById("background");
-  let nomDeVille = document.createElement("h1");
+  let nomDeVille = document.createElement("p");
   nomDeVille.classList = "titreVille";
 
   for (let i in nomVille) {
@@ -13,22 +25,19 @@ function nomVille(nomVille) {
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
       bG.style.backgroundAttachment = "fixed";
-      
-      
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
 
         bG.style.filter = "blur(" + valeur * 1 + "px)";
       });
-      
+
       nomDeVille.innerHTML = "Nancy";
-    }else if(lieu==="Arrondissement de Reims"){
+    } else if (lieu === "Arrondissement de Reims") {
       bG.style.backgroundImage = "url('./ressources/images/reims.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
       bG.style.backgroundAttachment = "fixed";
-      
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -36,12 +45,11 @@ function nomVille(nomVille) {
         bG.style.filter = "blur(" + valeur * 1 + "px)";
       });
       nomDeVille.innerHTML = "Reims";
-    }else if(lieu==="Strasbourg"){
+    } else if (lieu === "Strasbourg") {
       bG.style.backgroundImage = "url('./ressources/images/strasbourg.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
       bG.style.backgroundAttachment = "fixed";
-      
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -49,12 +57,11 @@ function nomVille(nomVille) {
         bG.style.filter = "blur(" + valeur * 1 + "px)";
       });
       nomDeVille.innerHTML = "Strasbourg";
-    }else if(lieu==="Metz"){
+    } else if (lieu === "Metz") {
       bG.style.backgroundImage = "url('./ressources/images/metz.jpg')";
       bG.style.backgroundSize = "cover";
       bG.style.backgroundPosition = "center";
       bG.style.backgroundAttachment = "fixed";
-      
 
       window.addEventListener("scroll", (event) => {
         let valeur = scrollY / 75;
@@ -63,11 +70,9 @@ function nomVille(nomVille) {
       });
       nomDeVille.innerHTML = "Metz";
     }
-     
-    
   }
 
-  ville.innerHTML=""
+  ville.innerHTML = "";
   ville.appendChild(nomDeVille);
 }
 
@@ -96,7 +101,7 @@ function temps(donnees) {
   humidite.style.color = "whitesmoke";
   humidite.style.fontWeight = "bold";
 
-  blocTemps.innerHTML=""
+  blocTemps.innerHTML = "";
 
   blocTemps.appendChild(descriptionTemps);
   blocTemps.appendChild(imageTemps);
@@ -163,7 +168,7 @@ function temps(donnees) {
   pascal.style.color = "whitesmoke";
   pascal.style.fontWeight = "bold";
 
-  blocTemperature.innerHTML=""
+  blocTemperature.innerHTML = "";
 
   blocTemperature.appendChild(maTemp);
   blocTemperature.appendChild(maTemperature);
@@ -238,117 +243,102 @@ menu.appendChild(menuMetz);
 
 /************************************switch************************************/
 
+function maRequeteNancy() {
+  let xhttp = new XMLHttpRequest();
 
-    function maRequeteNancy() {
-      let xhttp = new XMLHttpRequest();
-
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          let infoMeteoNancy = JSON.parse(this.response);
-          nomVille(infoMeteoNancy);
-          temps(infoMeteoNancy);
-          console.log(infoMeteoNancy);
-        }
-      };
-      xhttp.open(
-        "GET",
-        "http://api.openweathermap.org/data/2.5/weather?q=Nancy&appid=28da2799b73f06513b062e2b6178e72d",
-        true
-      );
-
-      xhttp.send();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let infoMeteoNancy = JSON.parse(this.response);
+      nomVille(infoMeteoNancy);
+      temps(infoMeteoNancy);
+      console.log(infoMeteoNancy);
     }
+  };
+  xhttp.open(
+    "GET",
+    "http://api.openweathermap.org/data/2.5/weather?q=Nancy&appid=28da2799b73f06513b062e2b6178e72d",
+    true
+  );
 
-    function maRequeteReims() {
-      let xhttp = new XMLHttpRequest();
+  xhttp.send();
+}
 
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          let infoMeteoNancy = JSON.parse(this.response);
-          nomVille(infoMeteoNancy);
-          temps(infoMeteoNancy);
-          console.log(infoMeteoNancy);
-        }
-      };
-      xhttp.open(
-        "GET",
-        "http://api.openweathermap.org/data/2.5/weather?q=Reims&appid=28da2799b73f06513b062e2b6178e72d",
-        true
-      );
+function maRequeteReims() {
+  let xhttp = new XMLHttpRequest();
 
-      xhttp.send();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let infoMeteoNancy = JSON.parse(this.response);
+      nomVille(infoMeteoNancy);
+      temps(infoMeteoNancy);
+      console.log(infoMeteoNancy);
     }
-    
+  };
+  xhttp.open(
+    "GET",
+    "http://api.openweathermap.org/data/2.5/weather?q=Reims&appid=28da2799b73f06513b062e2b6178e72d",
+    true
+  );
 
-    function maRequeteStrasbourg() {
-      let xhttp = new XMLHttpRequest();
+  xhttp.send();
+}
 
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          let infoMeteoNancy = JSON.parse(this.response);
-          nomVille(infoMeteoNancy);
-          temps(infoMeteoNancy);
-          console.log(infoMeteoNancy);
-        }
-      };
-      xhttp.open(
-        "GET",
-        "http://api.openweathermap.org/data/2.5/weather?q=Strasbourg&appid=28da2799b73f06513b062e2b6178e72d",
-        true
-      );
+function maRequeteStrasbourg() {
+  let xhttp = new XMLHttpRequest();
 
-      xhttp.send();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let infoMeteoNancy = JSON.parse(this.response);
+      nomVille(infoMeteoNancy);
+      temps(infoMeteoNancy);
+      console.log(infoMeteoNancy);
     }
+  };
+  xhttp.open(
+    "GET",
+    "http://api.openweathermap.org/data/2.5/weather?q=Strasbourg&appid=28da2799b73f06513b062e2b6178e72d",
+    true
+  );
 
-    function maRequeteMetz() {
-      let xhttp = new XMLHttpRequest();
+  xhttp.send();
+}
 
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          let infoMeteoNancy = JSON.parse(this.response);
-          nomVille(infoMeteoNancy);
-          temps(infoMeteoNancy);
-          console.log(infoMeteoNancy);
-        }
-      };
-      xhttp.open(
-        "GET",
-        "http://api.openweathermap.org/data/2.5/weather?q=Metz&appid=28da2799b73f06513b062e2b6178e72d",
-        true
-      );
+function maRequeteMetz() {
+  let xhttp = new XMLHttpRequest();
 
-      xhttp.send();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let infoMeteoNancy = JSON.parse(this.response);
+      nomVille(infoMeteoNancy);
+      temps(infoMeteoNancy);
+      console.log(infoMeteoNancy);
     }
-    
-    menuNancy.addEventListener('click',(event)=>{
-     
-     maRequeteNancy()
-      fermeMenu();
-   
-     
-    })
+  };
+  xhttp.open(
+    "GET",
+    "http://api.openweathermap.org/data/2.5/weather?q=Metz&appid=28da2799b73f06513b062e2b6178e72d",
+    true
+  );
 
-    menuReims.addEventListener('click',(event)=>{
-      
-     maRequeteReims()
-      fermeMenu();
- 
-    })
+  xhttp.send();
+}
 
-    menuStrasbourg.addEventListener('click',(event)=>{
-      
-      maRequeteStrasbourg()
-      fermeMenu();
-   
-    })
+menuNancy.addEventListener("click", (event) => {
+  maRequeteNancy();
+  fermeMenu();
+});
 
-    menuMetz.addEventListener('click',(event)=>{
-  
-      maRequeteMetz()
-      fermeMenu();
-    
-    })
-    
+menuReims.addEventListener("click", (event) => {
+  maRequeteReims();
+  fermeMenu();
+});
 
+menuStrasbourg.addEventListener("click", (event) => {
+  maRequeteStrasbourg();
+  fermeMenu();
+});
 
-    
+menuMetz.addEventListener("click", (event) => {
+  maRequeteMetz();
+  fermeMenu();
+});
