@@ -1,14 +1,3 @@
-let bGpremierePage = document.getElementById("background");
-
-window.addEventListener("scroll", (event) => {
-  let valeur = scrollY/4;
-
-  bGpremierePage.style.filter = "grayscale(" + valeur * 1 + "%)";
-});
-
-
-
-
 
 function nomVille(nomVille) {
   let ville = document.getElementById("ville");
@@ -199,6 +188,7 @@ function temps(donnees) {
 /************************************menu************************************/
 
 let bouton = document.getElementById("boutonMenu");
+let section2=document.getElementById("sect2")
 let croix = document.getElementById("croix");
 let menu = document.getElementById("menu");
 
@@ -218,6 +208,10 @@ croix.addEventListener("click", (event) => {
 
 function fermeMenu() {
   menu.style.display = "none";
+}
+
+function ouvreSection() {
+  section2.style.display = "flex";
 }
 
 let menuNancy = document.createElement("p");
@@ -325,20 +319,24 @@ function maRequeteMetz() {
 
 menuNancy.addEventListener("click", (event) => {
   maRequeteNancy();
+  ouvreSection()
   fermeMenu();
 });
 
 menuReims.addEventListener("click", (event) => {
   maRequeteReims();
+  ouvreSection()
   fermeMenu();
 });
 
 menuStrasbourg.addEventListener("click", (event) => {
   maRequeteStrasbourg();
+  ouvreSection()
   fermeMenu();
 });
 
 menuMetz.addEventListener("click", (event) => {
   maRequeteMetz();
+  ouvreSection()
   fermeMenu();
 });
